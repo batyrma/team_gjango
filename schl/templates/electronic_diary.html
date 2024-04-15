@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h2>Электронный дневник</h2>
+    <table>
+        <tr>
+            <th>Предмет</th>
+            <th>Оценка</th>
+            <th>Комментарий учителя</th>
+        </tr>
+        {% for grade in grades %}
+            <tr>
+                <td>{{ grade.exam.lesson.name }}</td>
+                <td>{{ grade.grade }}</td>
+                <td>{{ grade.teacher_comment }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

@@ -1,0 +1,31 @@
+<!-- parent_portal.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parent Portal</title>
+</head>
+<body>
+    <h1>Welcome, {{ parent.name }}!</h1>
+
+    <h2>Your Children:</h2>
+    {% for child_info in children_info %}
+        <h3>{{ child_info.child.name }}</h3>
+        <p>Grades:</p>
+        <ul>
+            {% for grade in child_info.grades %}
+                <li>{{ grade.exam.lesson.name }}: {{ grade.grade }}</li>
+            {% endfor %}
+        </ul>
+        <p>Attendance:</p>
+        <ul>
+            {% for attendance in child_info.attendance %}
+                <li>{{ attendance.lesson.name }} - {{ attendance.date }}: {{ attendance.status }}</li>
+            {% endfor %}
+        </ul>
+        <!-- Дополнительная информация о ребенке, например, успехи, посещаемость и т.д. -->
+    {% endfor %}
+</body>
+</html>
